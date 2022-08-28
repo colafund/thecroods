@@ -394,7 +394,7 @@ select:focus {
   background-size: cover;
 }
 .breadcrumb-area.turnaments {
-  background: url(../images/bc/turnament.png);
+  background: url(../images/bc/turnament.jpeg);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -410,7 +410,7 @@ select:focus {
   padding: 0px;
 }
 .breadcrumb-area.games {
-  background: url(../images/bc/games.png);
+  background: url(../images/bc/games.jpeg);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;

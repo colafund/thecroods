@@ -19,6 +19,28 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="assets/css/loading.css">
+	<style>
+		@media (min-width: 991px){
+			.ph1{
+				display: none;
+			}
+		}
+		@media (max-width: 991px){
+			.pc1{
+				display: none;
+			}
+			.header .mainmenu-area .navbar .navbar-brand img {
+    max-width: 120px;
+}
+		}
+
+		@media (max-width: 350px){
+			.header .mainmenu-area .navbar .navbar-brand img {
+    max-width: 90px;
+}
+		}
+	</style>
 </head>
 
 <body>
@@ -52,14 +74,15 @@
 										<a class="nav-link" href="mint.html">MARKET</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="profile.html">MY ACCOUNT</a>
+										<a class="nav-link" href="account.html">MY ACCOUNT</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="profile1.html">INVITE</a>
+										<a class="nav-link" href="inviter.html">INVITE</a>
 									</li>
 								</ul>
-								<a href="#" class="mybtn1"  data-toggle="modal" data-target="#signin">Wallet</a>
+								<a href="#" class="mybtn1 pc1"  data-toggle="modal"  id="select-address1" onclick="initWallet('select-address1',true)">Wallet</a>
 							</div>
+							<a href="#" class="mybtn1 ph1"  data-toggle="modal"  id="select-address" onclick="initWallet('select-address',true)">Wallet</a>
 						</nav>
 					</div>
 				</div>
@@ -102,7 +125,7 @@
 										<a href="#"><h4>Primary Egg</h4></a>
 										<div class="c-bottom">
 											<span>$CRT</span>
-											<a href="#" class="mybtn1">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('1')">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -119,7 +142,7 @@
 										<a href="#"><h4>Intermediate Egg</h4></a>
 										<div class="c-bottom">
 											<span>$CRT</span>
-											<a href="#" class="mybtn1">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('2')">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -136,7 +159,7 @@
 										<a href="#"><h4>Intermediate Egg</h4></a>
 										<div class="c-bottom">
 											<span>$CRT</span>
-											<a href="#" class="mybtn1">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('3')">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -153,7 +176,7 @@
 										<a href="#"><h4>Advanced Egg</h4></a>
 										<div class="c-bottom">
 											<span>$CRT</span>
-											<a href="#" class="mybtn1">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('4')">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -170,7 +193,7 @@
 										<a href="#"><h4>Rare Egg</h4></a>
 										<div class="c-bottom">
 											<span>$CRT</span>
-											<a href="#" class="mybtn1">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('5')">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -273,7 +296,7 @@
 	<!-- Footer Area End -->
 	
 	<!-- SignIn Area Start -->
-	<div class="modal fade login-modal sign-in" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
+	<!-- <div class="modal fade login-modal sign-in" id="signin" tabindex="-1" role="dialog" aria-labelledby="signin" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered " role="document">
 			<div class="modal-content">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -356,7 +379,7 @@
 				</div>
 			</div>
 			</div>
-	</div>
+	</div> -->
 	<!-- SignIn Area End -->
 			<!-- User Message Modal Start-->
 			<div class="modal fade" id="usermessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -676,6 +699,17 @@
 	<script src="assets/js/mousemoveparallax.js"></script>
 	<!-- main -->
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/my.js"></script>
 </body>
 
+<script>
+	window.onload = async function (){
+	if($('#'+"select-address").css("display") == "none"){
+		await initWallet("select-address1",true)
+	}else{
+		await initWallet("select-address",true)
+	}
+ 
+ }
+</script>
 </html>

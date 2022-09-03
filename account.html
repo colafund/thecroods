@@ -16,13 +16,39 @@
 	<link rel="stylesheet" href="assets/css/plugin.css">
 
 	<!-- stylesheet -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="/css/all.min.css">
-	<link rel="stylesheet" href="style.css">
-	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+	<!-- <link rel="stylesheet" href="/css/all.min.css" type="text/css">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link href="css/style.css" rel="stylesheet"> -->
 	<link href="https://fonts.loli.net/css?family=Fjalla+One" rel="stylesheet">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="assets/css/loading.css">
+	<style>
+		@media (min-width: 991px){
+			.header .mainmenu-area .navbar .ph1{
+				display: none;
+			}
+		}
+		@media (max-width: 991px){
+			.pc1{
+				display: none;
+			}
+			.header .mainmenu-area .navbar .navbar-brand img {
+    max-width: 120px;
+}
+		}
+
+		@media (max-width: 380px){
+			.header .mainmenu-area .navbar .navbar-brand img {
+    max-width: 90px;
+}
+.header .mainmenu-area .navbar .user-info-menu-area .left-area .number{
+	padding: 0px 5px;
+}
+
+		}
+	</style>
 </head>
 
 <body>
@@ -56,16 +82,16 @@
 										<a class="nav-link" href="mint.html">MARKET</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="profile.html">MY ACCOUNT</a>
+										<a class="nav-link" href="account.html">MY ACCOUNT</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="profile1.html">INVITE</a>
+										<a class="nav-link" href="inviter.html">INVITE</a>
 									</li>
 								</ul>
-									<div class="user-info-menu-area">
+									<div class="user-info-menu-area pc1" id="select-address1">
 										<div class="left-area">
 											<div class="number">
-											  <img src="assets/images/crypto/i1.png" alt="">	<p>0.0000 <span>BNB</span></p>
+											  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb">0.0000</span> <span>BNB</span></p>
 											</div>
 											<ul class="dp-links">
 												<li>
@@ -83,6 +109,26 @@
 											</div>
 										</div>
 									</div>
+									<div class="user-info-menu-area ph1" id="select-address">
+										<div class="left-area">
+											<div class="number">
+											  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb1">0.0000</span> <span>BNB</span></p>
+											</div>
+											<ul class="dp-links">
+												<li>
+													<a href="#"><img src="assets/images/crypto/i2.png" alt="">	<p><b>0.0000</b> <span>CRT</span></p></a>
+												</li>
+												<li>
+													<a href="#"><img src="assets/images/crypto/i3.png" alt="">	<p><b>0.0000</b> <span>FOOD</span></p></a>
+												</li>
+											</ul>
+										</div>
+										<div class="right-area">
+											<div class="icon">
+												<img src="assets/images/menu-user.png" alt="">
+												</div>
+											</div>
+										</div>
 								</li>
 							</ul>
 							</div>
@@ -105,8 +151,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="bc-content">
-						<div class="left">
-						</div>
+						<div class="left"></div>
 					</div>
 				</div>
 			</div>
@@ -126,7 +171,7 @@
 							</div>
 							<div class="mybadge">
 								<img src="assets/images/gamer/badge.png" alt="">
-								<span>V5</span>
+								<span id="vC1">V0</span>
 							</div>			
 						</div>
 						</div>
@@ -151,7 +196,7 @@
 							</ul>
 						</div>
 						<div class="right-area">
-							<a href="profile1.html" class="mybtn2 active"><i class="fas fa-code-branch"></i> Affiliate</a>
+							<a href="inviter.html" class="mybtn2 active"><i class="fas fa-code-branch"></i> Affiliate</a>
 						</div>
 					</div>
 				</div>
@@ -188,13 +233,13 @@
 									<img src="assets/images/gamer/a2.png" alt="">
 								</div>
 								<div class="right">
-									<p>Level: <span>V5</span></p>
+									<p>Level: <span id="vC2">V0</span></p>
 								</div>
 							</div>
 							<div class="bottom-area">
-								<div class="progress">
+								<!-- <div class="progress">
 									<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
-								  </div>
+								  </div> -->
 								<a href="#">Level description <i class="fas fa-chevron-right"></i></a>
 							</div>
 						</div>
@@ -274,17 +319,17 @@
 										<td>
 											<div class="ratio">
 												<span>Produced</span>
-												<h4>500 $CRT</h4>
+												<h4 id = "Ch1">0 CRT</h4>
 											</div>
 										</td>
 										<td>
 											<div class="ratio">
 												<span>Received</span>
-												<h4>1000</h4>
+												<h4 id = "Ch12">0</h4>
 											</div>
 										</td>
 										<td>
-											<a href="#" class="mybtn2">Harvest</a>
+											<a href="#" class="mybtn2" onclick="claim('1')">Harvest</a>
 										</td>
 									  </tr>
 									  <tr>
@@ -302,17 +347,17 @@
 										<td>
 											<div class="ratio">
 												<span>Produced</span>
-												<h4>500 $CRT</h4>
+												<h4 id = "Ch2">0 CRT</h4>
 											</div>
 										</td>
 										<td>
 											<div class="ratio">
 												<span>Received</span>
-												<h4>1000</h4>
+												<h4 id = "Ch22">0</h4>
 											</div>
 										</td>
 										<td>
-											<a href="#" class="mybtn2">Harvest</a>
+											<a href="#" class="mybtn2" onclick="claim('2')">Harvest</a>
 										</td>
 									  </tr>
 									  <tr>
@@ -330,17 +375,17 @@
 										<td>
 											<div class="ratio">
 												<span>Produced</span>
-												<h4>500 $CRT</h4>
+												<h4 id = "Ch3">0 CRT</h4>
 											</div>
 										</td>
 										<td>
 											<div class="ratio">
 												<span>Received</span>
-												<h4>1000</h4>
+												<h4 id = "Ch33">0</h4>
 											</div>
 										</td>
 										<td>
-											<a href="#" class="mybtn2">Harvest</a>
+											<a href="#" class="mybtn2" onclick="claim('3')">Harvest</a>
 										</td>
 									  </tr>
 									  <tr>
@@ -358,17 +403,17 @@
 										<td>
 											<div class="ratio">
 												<span>Produced</span>
-												<h4>500 $CRT</h4>
+												<h4 id = "Ch4">0 CRT</h4>
 											</div>
 										</td>
 										<td>
 											<div class="ratio">
 												<span>Received</span>
-												<h4>1000</h4>
+												<h4 id = "Ch44">0</h4>
 											</div>
 										</td>
 										<td>
-											<a href="#" class="mybtn2">Harvest</a>
+											<a href="#" class="mybtn2" onclick="claim('4')">Harvest</a>
 										</td>
 									  </tr>
 									  <tr>
@@ -386,17 +431,17 @@
 										<td>
 											<div class="ratio">
 												<span>Produced</span>
-												<h4>500 $CRT</h4>
+												<h4 id = "Ch5">0 CRT</h4>
 											</div>
 										</td>
 										<td>
 											<div class="ratio">
 												<span>Received</span>
-												<h4>1000</h4>
+												<h4 id = "Ch55">0</h4>
 											</div>
 										</td>
 										<td>
-											<a href="#" class="mybtn2">Harvest</a>
+											<a href="#" class="mybtn2" onclick="claim('5')">Harvest</a>
 										</td>
 									  </tr>
 									  <tr>
@@ -428,7 +473,7 @@
 										<h4 class="title">
 											Based on BNBCHAIN
 										</h4>
-										<a href="#" class="mybtn1"  data-toggle="modal">BUY $CRT</a>	
+										<a href="#" class="mybtn1"  data-toggle="modal">BUY CRT</a>	
 								</div>
 							</div>
 						</div>
@@ -535,6 +580,209 @@
 <script src="assets/js/mousemoveparallax.js"></script>
 <!-- main -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/my.js"></script>
 </body>
+<script>
+	window.onload = async function (){
+	if($('#'+"select-address").css("display") == "none"){
+		await initWallet("select-address1",false)
+		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
+		// https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
+		//https://bsc-dataseed1.binance.org
+		let web3Provider = new ethers.providers.Web3Provider(currentProvider);
+		var bnbAmount = await web3Provider.getBalance(privateAddress);
+		var userBnb = $('#userBnb');
+		var num = (bnbAmount.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
+		userBnb[0].innerHTML = num;
+	}else{
+		await initWallet("select-address",false)
+		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
+		// https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
+		//https://bsc-dataseed1.binance.org
+		let web3Provider = new ethers.providers.Web3Provider(currentProvider);
+		var bnbAmount = await web3Provider.getBalance(privateAddress);
+		var userBnb = $('#userBnb1');
+		var num = (bnbAmount.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
+		userBnb[0].innerHTML = num;
+	} 
+	var mulAbi = [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "to",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getAmountBNB",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getBNB",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "nft",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_thecroodsIdo",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "stateMutability": "payable",
+            "type": "receive"
+        },
+        {
+            "inputs": [],
+            "name": "dev_address",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "adr",
+                    "type": "address"
+                }
+            ],
+            "name": "getUserInfoIdo",
+            "outputs": [
+                {
+                    "internalType": "uint256[]",
+                    "name": "",
+                    "type": "uint256[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "adr",
+                    "type": "address"
+                }
+            ],
+            "name": "getUserInfoInvter",
+            "outputs": [
+                {
+                    "internalType": "uint256[]",
+                    "name": "",
+                    "type": "uint256[]"
+                },
+                {
+                    "components": [
+                        {
+                            "internalType": "address",
+                            "name": "userAdr",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "userLevel",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "userManyList",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "userRewardList",
+                            "type": "uint256"
+                        }
+                    ],
+                    "internalType": "struct ThecroodsIdoMuticall.oneUserRecord[]",
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "Nft",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "thecroodsIdo",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "Token",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
 
+     let contract1 = new ethers.Contract("0x1E62232aBCf59798C40c7f81715122245f95F6C4", mulAbi, walletWithProvider);
+	 var list = await contract1.getUserInfoIdo(privateAddress);
+	 var levelq = list[0].toString();
+	 $('#vC1')[0].innerHTML = "V"+levelq;
+	 $('#vC2')[0].innerHTML = "V"+levelq;
+	 var wClaim = (list[1].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
+	 var yCliam = (list[2].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
+	 var strs = "#Ch" + levelq;
+	 console.log(strs);
+	 var strs1 = "#Ch" +levelq + "2";
+	 $(strs)[0].innerHTML = wClaim + "CRT";
+	 $(strs1)[0].innerHTML = yCliam + "";
+
+ }
+</script>
 </html>

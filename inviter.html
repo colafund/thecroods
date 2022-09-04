@@ -82,6 +82,9 @@
 										<a class="nav-link" href="mint.html">MARKET</a>
 									</li>
 									<li class="nav-item">
+										<a class="nav-link" href="exchange.html">EXCHANGE</a>
+									</li>
+									<li class="nav-item">
 										<a class="nav-link" href="account.html">MY ACCOUNT</a>
 									</li>
 									<li class="nav-item">
@@ -91,14 +94,14 @@
 								<div class="user-info-menu-area pc1" id="select-address1">
 									<div class="left-area">
 										<div class="number">
-										  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb">0.0000</span> <span>BNB</span></p>
+										  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb">0.00</span> <span>BNB</span></p>
 										</div>
 										<ul class="dp-links">
 											<li>
-												<a href="#"><img src="assets/images/crypto/i2.png" alt="">	<p><b>0.0000</b> <span>CRT</span></p></a>
+												<a href="#"><img src="assets/images/crypto/i2.png" alt="">	<p><b id="userToken">0.00</b> <span>CRT</span></p></a>
 											</li>
 											<li>
-												<a href="#"><img src="assets/images/crypto/i3.png" alt="">	<p><b>0.0000</b> <span>FOOD</span></p></a>
+												<a href="#"><img src="assets/images/crypto/i3.png" alt="">	<p><b>0.00</b> <span>FOOD</span></p></a>
 											</li>
 										</ul>
 									</div>
@@ -112,14 +115,14 @@
 								<div class="user-info-menu-area ph1" id="select-address">
 									<div class="left-area">
 										<div class="number">
-										  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb1">0.0000</span> <span>BNB</span></p>
+										  <img src="assets/images/crypto/i1.png" alt="">	<p><span id="userBnb1">0.00</span> <span>BNB</span></p>
 										</div>
 										<ul class="dp-links">
 											<li>
-												<a href="#"><img src="assets/images/crypto/i2.png" alt="">	<p><b>0.0000</b> <span>CRT</span></p></a>
+												<a href="#"><img src="assets/images/crypto/i2.png" alt="">	<p><b id="userToken1">0.00</b> <span>CRT</span></p></a>
 											</li>
 											<li>
-												<a href="#"><img src="assets/images/crypto/i3.png" alt="">	<p><b>0.0000</b> <span>FOOD</span></p></a>
+												<a href="#"><img src="assets/images/crypto/i3.png" alt="">	<p><b>0.00</b> <span>FOOD</span></p></a>
 											</li>
 										</ul>
 									</div>
@@ -437,6 +440,7 @@
 </body>
 <script>
 	window.onload = async function (){
+		var isPc = true;
 	if($('#'+"select-address").css("display") == "none"){
 		await initWallet("select-address1",false)
 		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
@@ -447,6 +451,7 @@
 		var userBnb = $('#userBnb');
 		var num = (bnbAmount.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
 		userBnb[0].innerHTML = num;
+		isPc = true;
 	}else{
 		await initWallet("select-address",false)
 		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
@@ -457,6 +462,7 @@
 		var userBnb = $('#userBnb1');
 		var num = (bnbAmount.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
 		userBnb[0].innerHTML = num;
+		isPc = false;
 	} 
 
 	var mulAbi = [
@@ -624,7 +630,7 @@
         }
     ]
 
-     let contract1 = new ethers.Contract("0x4bC6dAd36f5a6242255888cb1f71C5e6fba79D84", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0x104a1eB32B4a0Bb2E89511AfB12e3ca78AF8439b", mulAbi, walletWithProvider);
 	 var list = await contract1.getUserInfoInvter(privateAddress);
 	 console.log(list);
 	 var bools = list[0][0].toString();
@@ -648,6 +654,17 @@
 			var ew2 = (userList[i].userRewardList.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
 			$("#taba2").append('<tr><td>'+userList[i].userAdr+'</td><td>'+userList[i].userLevel.toString()+'</td><td>'+ew1+'</td><td>'+ew2+'</td></tr>'); 
 		}
+		if(isPc){
+		var userToken = $('#userToken');
+		var numss = (list[0][5].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
+		console.log(numss +"1");
+		userToken[0].innerHTML = numss;
+	}else{
+		var userToken = $('#userToken1');
+		var numss = (list[0][5].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
+		console.log(numss +"2");
+		userToken[0].innerHTML = numss;
+	}
 
  }
 </script>

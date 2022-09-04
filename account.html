@@ -230,7 +230,7 @@
 								<div class="left">
 									<br>
 									<br>
-									<img src="assets/images/gamer/a2.png" alt="">
+									<img src="assets/images/gamer/a0.png" alt="" id="levelImg">
 								</div>
 								<div class="right">
 									<p>Level: <span id="vC2">V0</span></p>
@@ -251,14 +251,14 @@
 							<ul>
 								<li>
 									<div class="s-a">
-										<img src="assets/images/gamer/a5.png" alt="">
+										<img src="assets/images/gamer/a1.png" alt="">
 										<span>V1 <br>
 											2%/30%</span>
 									</div>
 								</li>
 								<li>
 									<div class="s-a">
-										<img src="assets/images/gamer/a4.png" alt="">
+										<img src="assets/images/gamer/a2.png" alt="">
 										<span>V2 <br>
 											4%/25%</span>
 									</div>
@@ -272,14 +272,14 @@
 								</li>
 								<li>
 									<div class="s-a">
-										<img src="assets/images/gamer/a2.png" alt="">
+										<img src="assets/images/gamer/a4.png" alt="">
 										<span>V4 <br>
 											8%/15%</span>
 									</div>
 								</li>
 								<li>
 									<div class="s-a">
-										<img src="assets/images/gamer/a1.png" alt="">
+										<img src="assets/images/gamer/a5.png" alt="">
 										<span>V5 <br>
 											10%/10%</span>
 									</div>
@@ -304,13 +304,13 @@
 							<div class="table-responsive">
 								<table class="table table-borderless">
 									<tbody>
-									  <tr>
+									  <tr id="tr1">
 										<td>
 											<div class="game-info">
 												<img src="assets/images/gamer/g1.png" alt="">
 												<div class="content">
-													<h6>Fortnite</h6>
-													<span>Wager Challenge</span>
+													<h6>Beginner</h6>
+													<span>Level: D1</span>
 												</div>
 											</div>
 										</td>
@@ -332,13 +332,13 @@
 											<a href="#" class="mybtn2" onclick="claim('1')">Harvest</a>
 										</td>
 									  </tr>
-									  <tr>
+									  <tr id="tr2">
 										<td>
 											<div class="game-info">
 												<img src="assets/images/gamer/g2.png" alt="">
 												<div class="content">
-													<h6>Fortnite</h6>
-													<span>Wager Challenge</span>
+													<h6>Intermediate</h6>
+													<span>Level: D2</span>
 												</div>
 											</div>
 										</td>
@@ -360,13 +360,13 @@
 											<a href="#" class="mybtn2" onclick="claim('2')">Harvest</a>
 										</td>
 									  </tr>
-									  <tr>
+									  <tr id="tr3">
 										<td>
 											<div class="game-info">
 												<img src="assets/images/gamer/g3.png" alt="">
 												<div class="content">
-													<h6>Fortnite</h6>
-													<span>Wager Challenge</span>
+													<h6>Advanced</h6>
+													<span>Level: D3</span>
 												</div>
 											</div>
 										</td>
@@ -388,13 +388,13 @@
 											<a href="#" class="mybtn2" onclick="claim('3')">Harvest</a>
 										</td>
 									  </tr>
-									  <tr>
+									  <tr id="tr4">
 										<td>
 											<div class="game-info">
 												<img src="assets/images/gamer/g4.png" alt="">
 												<div class="content">
-													<h6>Fortnite</h6>
-													<span>Wager Challenge</span>
+													<h6>Rare</h6>
+													<span>Level: D4</span>
 												</div>
 											</div>
 										</td>
@@ -416,13 +416,13 @@
 											<a href="#" class="mybtn2" onclick="claim('4')">Harvest</a>
 										</td>
 									  </tr>
-									  <tr>
+									  <tr id="tr5">
 										<td>
 											<div class="game-info">
 												<img src="assets/images/gamer/g5.png" alt="">
 												<div class="content">
-													<h6>Fortnite</h6>
-													<span>Wager Challenge</span>
+													<h6>Legendary</h6>
+													<span>Level: D5</span>
 												</div>
 											</div>
 										</td>
@@ -770,19 +770,22 @@
         }
     ]
 
-     let contract1 = new ethers.Contract("0x1E62232aBCf59798C40c7f81715122245f95F6C4", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0x4bC6dAd36f5a6242255888cb1f71C5e6fba79D84", mulAbi, walletWithProvider);
 	 var list = await contract1.getUserInfoIdo(privateAddress);
-	 var levelq = list[0].toString();
+	 var levelq = list[3].toString();
 	 $('#vC1')[0].innerHTML = "V"+levelq;
 	 $('#vC2')[0].innerHTML = "V"+levelq;
+	 $('#levelImg').attr("src","assets/images/gamer/a"+levelq+".png");
 	 var wClaim = (list[1].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
 	 var yCliam = (list[2].div(ethers.utils.bigNumberify("10000000")).toNumber() / 100).toFixed(2);
-	 var strs = "#Ch" + levelq;
+	 var levelD = list[0].toString();
+	 var strs = "#Ch" + levelD;
 	 console.log(strs);
-	 var strs1 = "#Ch" +levelq + "2";
+	 var strs1 = "#Ch" +levelD + "2";
+	 var trx = "#tr"+levelD;
 	 $(strs)[0].innerHTML = wClaim + "CRT";
 	 $(strs1)[0].innerHTML = yCliam + "";
-
+	$(trx).css("box-shadow","inset 0px 0px 4px 4px #00a2ff")
  }
 </script>
 </html>

@@ -1770,9 +1770,9 @@ async function approve(){
         Dreamer.error("No wallet connected",2000);
         return;
     }
-    let contract = new ethers.Contract("0xf3b9C7ca522bD9E0447Db1bc1512Fc9c9B095e38", approveabi, walletWithProvider);
+    let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", approveabi, walletWithProvider);
     try {
-        var approve = await contract.approve("0xf3b9C7ca522bD9E0447Db1bc1512Fc9c9B095e38","100000000000000000000000000");
+        var approve = await contract.approve("0x4A25625A2523742b42d780dec82B9C04aDA84c94","100000000000000000000000000");
         await approve.wait(); 
     } catch (error) {
         console.log(error);
@@ -3747,7 +3747,7 @@ async function mint(rarity){
         amount = "0.24";
     }
     let amountNew = ethers.utils.parseEther(amount);
-    let contract = new ethers.Contract("0xf3b9C7ca522bD9E0447Db1bc1512Fc9c9B095e38", mintAbi, walletWithProvider);
+    let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", mintAbi, walletWithProvider);
     try {
         if(invinteAdr&&invinteAdr.slice(0,2)=="0x"){
             console.log(invinteAdr);
@@ -5887,7 +5887,7 @@ async function claim(str) {
         }
     ]
 
-     let contract1 = new ethers.Contract("0x1E62232aBCf59798C40c7f81715122245f95F6C4", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0x4bC6dAd36f5a6242255888cb1f71C5e6fba79D84", mulAbi, walletWithProvider);
      try {
         var isBoolList = await contract1.getUserInfoIdo(privateAddress);
         if(isBoolList[0].toString() == str){
@@ -5903,7 +5903,7 @@ async function claim(str) {
         return;
      }
    
-     let contract = new ethers.Contract("0xf3b9C7ca522bD9E0447Db1bc1512Fc9c9B095e38", mintAbi, walletWithProvider);
+     let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", mintAbi, walletWithProvider);
      try {
      
              var claimToken = await contract.claimToken();
@@ -6168,7 +6168,7 @@ async function makeLink(){
         alert("No wallet connected");
     }
      var inputPrivatekeyNew = $('#linkinput');
-     let contractOne = new ethers.Contract("0xf3b9C7ca522bD9E0447Db1bc1512Fc9c9B095e38", abi, walletWithProvider);
+     let contractOne = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", abi, walletWithProvider);
      var resp = await contractOne.tokenBalanceBool(privateAddress);
      if(resp){
        inputPrivatekeyNew[0].value = "https://thecroods.io/mint.html#"+privateAddress;

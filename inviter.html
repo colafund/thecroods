@@ -624,7 +624,7 @@
         }
     ]
 
-     let contract1 = new ethers.Contract("0x1E62232aBCf59798C40c7f81715122245f95F6C4", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0x4bC6dAd36f5a6242255888cb1f71C5e6fba79D84", mulAbi, walletWithProvider);
 	 var list = await contract1.getUserInfoInvter(privateAddress);
 	 console.log(list);
 	 var bools = list[0][0].toString();
@@ -638,7 +638,7 @@
 	 var rTotal = (list[0][2].div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
 	 $('#sTotal')[0].innerHTML = sTotal +"BNB";
 	 $('#rTotal')[0].innerHTML = rTotal +"BNB";
-	 $("#vq1")[0].innerHTML = "V"+list[0][3].toString();
+	 $("#vq1")[0].innerHTML = "V"+list[0][4].toString();
 
 	 var userList = list[1];
 

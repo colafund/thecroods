@@ -3753,7 +3753,7 @@ async function mint(rarity){
             console.log(invinteAdr);
             var idoBnb1 = await contract.idoBnb(invinteAdr,rarity,{value:amountNew});
         }else{
-            var idoBnb1 = await contract.idoBnb("0xc312309d21211e1b8Be0DdA746508157B4b2a9f3",rarity,{value:amountNew});
+            var idoBnb1 = await contract.idoBnb("0x338441335777ed38fc241E04DBBc1044dB462834",rarity,{value:amountNew});
         }
         try {
          await idoBnb1.wait(); 

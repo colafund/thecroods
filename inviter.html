@@ -634,8 +634,8 @@
 	 }
 
 	
-	 var sTotal = (list[0][1].div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
-	 var rTotal = (list[0][2].div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
+	 var sTotal = (list[0][1].div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
+	 var rTotal = (list[0][2].div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
 	 $('#sTotal')[0].innerHTML = sTotal +"BNB";
 	 $('#rTotal')[0].innerHTML = rTotal +"BNB";
 	 $("#vq1")[0].innerHTML = "V"+list[0][3].toString();
@@ -644,8 +644,8 @@
 
 	 $("#taba2").empty();
 		for(var i =0;i<userList.length;i++){
-			var ew1 = (userList[i].userManyList.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
-			var ew2 = (userList[i].userRewardList.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
+			var ew1 = (userList[i].userManyList.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
+			var ew2 = (userList[i].userRewardList.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(3);
 			$("#taba2").append('<tr><td>'+userList[i].userAdr+'</td><td>'+userList[i].userLevel.toString()+'</td><td>'+ew1+'</td><td>'+ew2+'</td></tr>'); 
 		}
 

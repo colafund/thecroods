@@ -40,6 +40,30 @@
     max-width: 90px;
 }
 		}
+		.selectBox {
+			width: 100px; 
+			height: 100px;
+			background-color: #fff;
+			position: absolute;
+			right: 0;
+			top: 55px;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px 0;
+			box-sizing: border-box;
+			display: none;
+			z-index: 1000;
+		}
+		.selectBox img {
+			height: 20px;
+			position: absolute;
+			left: 55px;
+			top: -10px;
+			
+		}
 	</style>
 </head>
 
@@ -66,26 +90,33 @@
 							</button>
 							<div class="collapse navbar-collapse fixed-height" id="main_menu">
 								<ul class="navbar-nav ml-auto">
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="index.html">HOME</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="mint.html">MARKET</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="exchange.html">EXCHANGE</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="account.html">MY ACCOUNT</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="inviter.html">INVITE</a>
-									</li>
-								</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="index.html" data-locale="home">HOME</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="mint.html" data-locale="market">MARKET</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="exchange.html" data-locale="exchange">EXCHANGE</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="account.html" data-locale="myAccount">MY ACCOUNT</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="inviter.html" data-locale="invite">INVITE</a>
+								</li>
+							</ul>
 								<a href="#" class="mybtn1 pc1"  data-toggle="modal"  id="select-address1" onclick="initWallet('select-address1',true)">Wallet</a>
+								<div class="pc1"><img src="assets/img/wl.png" style="margin-left: 20px; height: 40px;" onclick="qihuan()"></div>
 							</div>
 							<a href="#" class="mybtn1 ph1"  data-toggle="modal"  id="select-address" onclick="initWallet('select-address',true)">Wallet</a>
+							<div class="ph1"><img src="assets/img/wl.png" style="height: 40px;" onclick="qihuan()"></div>
+							<div class="selectBox">
+								<img src="assets/img/sj.png">
+								<p onclick="clickYu('en')">English</p>
+								<p onclick="clickYu('cn')">中文简体</p>
+							</div>
 						</nav>
 					</div>
 				</div>
@@ -99,7 +130,7 @@
 	<section class="breadcrumb-area turnaments2">
 		<div class="content">
 			<img src="assets/images/s-box.png" alt="">
-			<li><span class="title">Distance from start:</span></li>
+			<li><span class="title" data-locale="distanceFrom">Distance from start:</span></li>
 			<div class="timecounter">
 				<i class="far fa-clock"></i>
 				<div data-countdown="2022/12/15"><span>00:</span><span>00:</span><span>00:</span><span>00</span></div>
@@ -120,15 +151,15 @@
 						<div class="col-lg-6">
 							<div class="single-tikit">
 								<div class="image">
-									<span class="tag">Genesis</span>
+									<span class="tag" data-locale="genesis1">Genesis</span>
 									<img src="assets/images/product/sa1.png" alt="">
 								</div>
 								<div class="content">
 									<div class="content-area">
-										<a href="#"><h4>Primary Egg</h4></a>
+										<a href="#"><h4 data-locale="primaryEgg">Primary Egg</h4></a>
 										<div class="c-bottom">
 											<span>1 BNB</span>
-											<a href="#" class="mybtn1" onclick="mint('1')">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('1')" data-locale="mintNow">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -137,15 +168,15 @@
 						<div class="col-lg-6">
 							<div class="single-tikit">
 								<div class="image">
-									<span class="tag">Genesis</span>
+									<span class="tag" data-locale="genesis1">Genesis</span>
 									<img src="assets/images/product/sa2.png" alt="">
 								</div>
 								<div class="content">
 									<div class="content-area">
-										<a href="#"><h4>Intermediate Egg</h4></a>
+										<a href="#"><h4 data-locale="intermediateEgg">Intermediate Egg</h4></a>
 										<div class="c-bottom">
 											<span>3 BNB</span>
-											<a href="#" class="mybtn1" onclick="mint('2')">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('2')" data-locale="mintNow">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -154,15 +185,15 @@
 						<div class="col-lg-6">
 							<div class="single-tikit">
 								<div class="image">
-									<span class="tag">Genesis</span>
+									<span class="tag" data-locale="genesis1">Genesis</span>
 									<img src="assets/images/product/sa3.png" alt="">
 								</div>
 								<div class="content">
 									<div class="content-area">
-										<a href="#"><h4>Intermediate Egg</h4></a>
+										<a href="#"><h4 data-locale="advancedEgg">Advanced Egg</h4></a>
 										<div class="c-bottom">
 											<span>6 BNB</span>
-											<a href="#" class="mybtn1" onclick="mint('3')">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('3')" data-locale="mintNow">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -171,15 +202,15 @@
 						<div class="col-lg-6">
 							<div class="single-tikit">
 								<div class="image">
-									<span class="tag">Genesis</span>
+									<span class="tag" data-locale="genesis1">Genesis</span>
 									<img src="assets/images/product/sa4.png" alt="">
 								</div>
 								<div class="content">
 									<div class="content-area">
-										<a href="#"><h4>Advanced Egg</h4></a>
+										<a href="#"><h4 data-locale="rareEgg">Rare Egg</h4></a>
 										<div class="c-bottom">
 											<span>12 BNB</span>
-											<a href="#" class="mybtn1" onclick="mint('4')">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('4')" data-locale="mintNow">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -188,15 +219,15 @@
 						<div class="col-lg-6">
 							<div class="single-tikit">
 								<div class="image">
-									<span class="tag">Genesis</span>
+									<span class="tag" data-locale="genesis1">Genesis</span>
 									<img src="assets/images/product/sa5.png" alt="">
 								</div>
 								<div class="content">
 									<div class="content-area">
-										<a href="#"><h4>Rare Egg</h4></a>
+										<a href="#"><h4 data-locale="legendaryEgg">Legendary Egg</h4></a>
 										<div class="c-bottom">
 											<span>24 BNB</span>
-											<a href="#" class="mybtn1" onclick="mint('5')">Mint Now</a>
+											<a href="#" class="mybtn1" onclick="mint('5')" data-locale="mintNow">Mint Now</a>
 										</div>
 									</div>
 								</div>
@@ -220,13 +251,13 @@
 						<div class="row justify-content-center">
 							<div class="col-lg-12">
 								<div class="heading-area">
-										<h5 class="sub-title">
+										<h5 class="sub-title" data-locale="community-driven">
 											A community-driven metaverse virtual world
 										</h5>
-										<h4 class="title">
+										<h4 class="title" data-locale="basedBNBCHAIN">
 											Based on BNBCHAIN
 										</h4>
-										<a href="#" class="mybtn1"  data-toggle="modal">BUY $CRT</a>		
+										<a href="#" class="mybtn1"  data-locale="BUYCRT">BUY $CRT</a>		
 								</div>
 							</div>
 						</div>
@@ -703,9 +734,58 @@
 	<!-- main -->
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/my.js"></script>
+	<script src="assets/js/I18n/i18n.js"></script>
+	<script src="assets/js/lang.js"></script>
 </body>
 
 <script>
+
+var num1 = 0;
+			   var bool1 = true;
+			function qihuan(){
+				let selectBox = document.querySelector('.selectBox')
+				
+			   if(num1%2 == 0){
+				   bool1 = true;
+				   selectBox.style.display = 'flex'
+			   }else{
+				   bool1 =false;
+				   selectBox.style.display = 'none'
+			   }
+			   if(bool1){
+				//    chooseLang('cn')
+				   num1 = num1+1;
+			   }else{
+				//    chooseLang('en')
+				   num1 = num1+1;
+			   }
+			   
+			}
+			function clickYu(str){
+				let selectBox = document.querySelector('.selectBox')
+				if(str == "en"){
+					chooseLang('en')
+				}else{
+					chooseLang('cn')
+				}
+				selectBox.style.display = 'none'
+			}
+
+			document.addEventListener('mouseup', (e) => {
+        let divSearch = document.querySelector('.selectBox') //选择返回的第一个出现的元素
+        
+        if (divSearch) {
+          if (!divSearch.contains(event.target)) {
+            //判断某个元素不是目标元素的子元素 即目标元素以外的区域
+            var modal = document.querySelector(".selectBox");
+			if(modal.style.display == "flex"){
+			 num1 = num1+1;
+			}
+            modal.style.display = "none";
+			
+          }
+        }
+      })
 	window.onload = async function (){
 	if($('#'+"select-address").css("display") == "none"){
 		await initWallet("select-address1",true)

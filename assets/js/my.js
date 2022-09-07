@@ -1770,9 +1770,9 @@ async function approve(){
         Dreamer.error("No wallet connected",2000);
         return;
     }
-    let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", approveabi, walletWithProvider);
+    let contract = new ethers.Contract("0xC0Bd7503B7c36c6C73b546DBf8B1b46Fa7d66D13", approveabi, walletWithProvider);
     try {
-        var approve = await contract.approve("0x3173C2053430A78E2065EC0f4EF9E39a112a114E","100000000000000000000000000");
+        var approve = await contract.approve("0xCd1D556CcF6a3123CAf15245223333b4604703BE","100000000000000000000000000");
         await approve.wait(); 
     } catch (error) {
         console.log(error);
@@ -3736,24 +3736,26 @@ async function mint(rarity){
     }
     var amount;
     if(rarity == "1"){
-        amount = "0.01";
+        amount = "1";
     }else if(rarity == "2"){
-        amount = "0.03";
+        amount = "3";
     }else if(rarity == "3"){
-        amount = "0.06";
+        amount = "6";
     }else if(rarity == "4"){
-        amount = "0.12";
+        amount = "12";
     }else if(rarity == "5"){
-        amount = "0.24";
+        amount = "24";
     }
     let amountNew = ethers.utils.parseEther(amount);
-    let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", mintAbi, walletWithProvider);
+    let contract = new ethers.Contract("0xC0Bd7503B7c36c6C73b546DBf8B1b46Fa7d66D13", mintAbi, walletWithProvider);
     try {
         if(invinteAdr&&invinteAdr.slice(0,2)=="0x"){
             console.log(invinteAdr);
             var idoBnb1 = await contract.idoBnb(invinteAdr,rarity,{value:amountNew});
         }else{
-            var idoBnb1 = await contract.idoBnb("0x338441335777ed38fc241E04DBBc1044dB462834",rarity,{value:amountNew});
+        loadingStop();
+        Dreamer.error("Inviter address is not success",2000);
+        return;
         }
         try {
          await idoBnb1.wait(); 
@@ -5887,7 +5889,7 @@ async function claim(str) {
         }
     ]
 
-     let contract1 = new ethers.Contract("0x104a1eB32B4a0Bb2E89511AfB12e3ca78AF8439b", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0xB7154045b1610AeB68771a643dd4d0f48DE84B97", mulAbi, walletWithProvider);
      try {
         var isBoolList = await contract1.getUserInfoIdo(privateAddress);
         if(isBoolList[0].toString() == str){
@@ -5903,7 +5905,7 @@ async function claim(str) {
         return;
      }
    
-     let contract = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", mintAbi, walletWithProvider);
+     let contract = new ethers.Contract("0xC0Bd7503B7c36c6C73b546DBf8B1b46Fa7d66D13", mintAbi, walletWithProvider);
      try {
      
              var claimToken = await contract.claimToken();
@@ -6197,7 +6199,7 @@ async function exchange(amount){
          return;
      }
     var amountNew = amount|0+"";
-     let contract = new ethers.Contract("0x3173C2053430A78E2065EC0f4EF9E39a112a114E", exchangeAbi, walletWithProvider);
+     let contract = new ethers.Contract("0xCd1D556CcF6a3123CAf15245223333b4604703BE", exchangeAbi, walletWithProvider);
      try {
              var claimToken = await contract.exchangeHandle(amountNew);
          
@@ -6460,7 +6462,7 @@ async function makeLink(){
         alert("No wallet connected");
     }
      var inputPrivatekeyNew = $('#linkinput');
-     let contractOne = new ethers.Contract("0x4A25625A2523742b42d780dec82B9C04aDA84c94", abi, walletWithProvider);
+     let contractOne = new ethers.Contract("0xC0Bd7503B7c36c6C73b546DBf8B1b46Fa7d66D13", abi, walletWithProvider);
      var resp = await contractOne.tokenBalanceBool(privateAddress);
      if(resp){
        inputPrivatekeyNew[0].value = "https://thecroods.io/mint.html#"+privateAddress;

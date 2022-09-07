@@ -672,18 +672,20 @@
 		var isPc = true;
 	if($('#'+"select-address").css("display") == "none"){
 		await initWallet("select-address1",false)
-		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
+		var currentProvider = new Web3.providers.HttpProvider('https://bsc-dataseed1.binance.org');
 		// https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
 		//https://bsc-dataseed1.binance.org
 		let web3Provider = new ethers.providers.Web3Provider(currentProvider);
 		var bnbAmount = await web3Provider.getBalance(privateAddress);
 		var userBnb = $('#userBnb');
+		console.log(bnbAmount.toString())
 		var num = (bnbAmount.div(ethers.utils.bigNumberify("10000000000000000")).toNumber() / 100).toFixed(2);
+		console.log(num);
 		userBnb[0].innerHTML = num;
 		isPc = true;
 	}else{
 		await initWallet("select-address",false)
-		var currentProvider = new Web3.providers.HttpProvider('https://goerli.infura.io/v3/145acbee350d44709d5e64f496e0e954');
+		var currentProvider = new Web3.providers.HttpProvider('https://bsc-dataseed1.binance.org');
 		// https://kovan.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
 		//https://bsc-dataseed1.binance.org
 		let web3Provider = new ethers.providers.Web3Provider(currentProvider);
@@ -858,7 +860,7 @@
         }
     ]
 
-     let contract1 = new ethers.Contract("0x104a1eB32B4a0Bb2E89511AfB12e3ca78AF8439b", mulAbi, walletWithProvider);
+     let contract1 = new ethers.Contract("0xB7154045b1610AeB68771a643dd4d0f48DE84B97", mulAbi, walletWithProvider);
 	 var list = await contract1.getUserInfoIdo(privateAddress);
 	 var levelq = list[3].toString();
 	 $('#vC1')[0].innerHTML = "V"+levelq;

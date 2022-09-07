@@ -92,6 +92,12 @@
 			border-radius: 10px;
 			padding: 30px;
 		}
+		.ex9{
+			text-align: center;
+			font-weight: 700;
+			color: red;
+			margin-top: 35px;
+		}
 		@media (max-width: 500px){
 		.ex1{
 			font-size: 14px;
@@ -122,6 +128,7 @@
 			padding: 20px;
 		}
 		}
+
 
 		@media (max-width: 400px){
 		.ex1{
@@ -369,6 +376,7 @@
 										<button class="buttonBorder buttonw" onclick="approve()" data-locale="approve">APPROVE</button>
 										<button class="buttonBorder buttonw" onclick="exchangeNew()" data-locale="exchange">EXCHANGE</button>
 									</div> 
+									<div class="ex9"> <span data-locale="PS1">PS</span> : 1CRT = 0.0002BNB</div>
 								</div>
 							</div>
 						</div>
@@ -764,6 +772,7 @@ var num1 = 0;
 		console.log(numss +"2");
 		userToken[0].innerHTML = numss;
 	}
+	$("#vq1")[0].innerHTML = "V"+list[0][4].toString();
 
    a50 = (list[0][5].div(ethers.utils.bigNumberify("10000000")).toNumber() / 200).toFixed(2);
    a80 = (list[0][5].div(ethers.utils.bigNumberify("10000000")).toNumber() / 125).toFixed(2);

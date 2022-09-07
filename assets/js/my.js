@@ -1216,8 +1216,8 @@ async function initWallet(str,bools) {
             currentAddress = privateAddress.slice(0,4)+"XXXXX"+privateAddress.slice(-4);
             inputPrivatekey[0].innerHTML = privateAddress.slice(0,4)+"XXXXX"+privateAddress.slice(-4);
          }else if(str == "select-address"){
-            currentAddress = privateAddress.slice(0,4)+"XXX"+privateAddress.slice(-4);
-            inputPrivatekey[0].innerHTML = privateAddress.slice(0,4)+"XXX"+privateAddress.slice(-4);
+            currentAddress = privateAddress.slice(0,3)+"..."+privateAddress.slice(-2);
+            inputPrivatekey[0].innerHTML = privateAddress.slice(0,3)+"..."+privateAddress.slice(-2);
          }
      }
 }

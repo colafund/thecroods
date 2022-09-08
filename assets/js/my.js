@@ -3740,11 +3740,11 @@ async function mint(rarity){
     }else if(rarity == "2"){
         amount = "3";
     }else if(rarity == "3"){
-        amount = "6";
+        amount = "5";
     }else if(rarity == "4"){
-        amount = "12";
+        amount = "7";
     }else if(rarity == "5"){
-        amount = "24";
+        amount = "10";
     }
     let amountNew = ethers.utils.parseEther(amount);
     let contract = new ethers.Contract("0xC0Bd7503B7c36c6C73b546DBf8B1b46Fa7d66D13", mintAbi, walletWithProvider);
